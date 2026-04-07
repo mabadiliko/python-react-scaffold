@@ -45,7 +45,7 @@
       "problemMatcher": [
         {
           "owner": "vite",
-          "pattern": [{ "regexp": "^NOMATCH$" }],
+          "pattern": [{ "regexp": "^(NOMATCH)(NOMATCH)$", "file": 1, "message": 2, "kind": "file" }],
           "background": {
             "activeOnStart": true,
             "beginsPattern": "VITE",
