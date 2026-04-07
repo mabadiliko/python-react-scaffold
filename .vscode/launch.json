@@ -1,0 +1,23 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      // Debug the FastAPI backend with auto-reload
+      // Run 'uv sync' at the repo root first so the .venv exists
+      "name": "FastAPI (debug)",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "uvicorn",
+      "args": [
+        "app.main:app",
+        "--host", "0.0.0.0",
+        "--port", "8000",
+        "--reload"
+      ],
+      // IMPORTANT: cwd must be pyapp/ for 'app.main:app' module resolution
+      "cwd": "${workspaceFolder}/pyapp",
+      "python": "${workspaceFolder}/.venv/bin/python",
+      "justMyCode": true
+    }
+  ]
+}

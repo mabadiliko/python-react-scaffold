@@ -1,0 +1,16 @@
+.git
+.gitignore
+.vscode
+.venv
+.env
+*.env
+
+client/node_modules
+client/dist
+
+pyapp/data
+pyapp/static
+pyapp/__pycache__
+pyapp/app/__pycache__
+
+README.md

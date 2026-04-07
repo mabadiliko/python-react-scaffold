@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(py|js|json|toml|yml|yaml|dockerfile\\)$|Dockerfile\")",
+      "Bash(git -C /home/hakan/Develop/python-react-scaffold log --oneline)",
+      "Bash(uv --version)",
+      "Bash(uv python:*)",
+      "Bash(docker compose:*)",
+      "Bash(curl -s http://localhost:8000/)",
+      "Bash(curl -sv http://localhost:8000/)",
+      "Bash(curl -s http://localhost:8000/api/info)",
+      "Bash(kill 32092 33394)"
+    ]
+  }
+}

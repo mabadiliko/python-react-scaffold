@@ -1,0 +1,16 @@
+[project]
+name = "python-react-scaffold"
+version = "0.1.0"
+description = "FastAPI + React/Vite scaffold demo"
+requires-python = ">=3.13"
+dependencies = [
+    "fastapi[standard]",
+    "uvicorn[standard]",
+    "pydantic-settings",
+]
+
+[dependency-groups]
+dev = ["pytest>=8,<10"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

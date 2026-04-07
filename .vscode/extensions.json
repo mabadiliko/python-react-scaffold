@@ -1,0 +1,14 @@
+{
+  "recommendations": [
+    // Python
+    "ms-python.python",
+    "ms-python.pylance",
+    "charliermarsh.ruff",
+    // JavaScript / React
+    "esbenp.prettier-vscode",
+    // Remote development on WSL
+    "ms-vscode-remote.remote-wsl",
+    // Docker
+    "ms-azuretools.vscode-docker"
+  ]
+}

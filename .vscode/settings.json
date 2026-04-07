@@ -1,0 +1,27 @@
+{
+  // Python interpreter — uv places the venv at the repo root
+  "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
+  "python.analysis.extraPaths": ["${workspaceFolder}/pyapp"],
+
+  // Format on save
+  "editor.formatOnSave": true,
+  "[python]": {
+    "editor.defaultFormatter": "charliermarsh.ruff"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  // Treat .jsx files as JSX
+  "files.associations": {
+    "*.jsx": "javascriptreact"
+  },
+
+  // WSL: polling is more reliable than inotify for file-watch (uvicorn --reload, Vite HMR)
+  "remote.WSL.fileWatcher.polling": true,
+
+  "terminal.integrated.defaultProfile.linux": "bash"
+}
