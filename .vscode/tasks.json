@@ -6,7 +6,10 @@
   "options": {
     "shell": {
       "executable": "/bin/bash",
-      "args": ["-i", "-c"]
+      "args": [
+        "-i",
+        "-c"
+      ]
     }
   },
   "tasks": [
@@ -27,6 +30,7 @@
       "label": "Frontend: start",
       "type": "shell",
       "command": "npm run dev",
+      "isBackground": true,
       "options": {
         "cwd": "${workspaceFolder}/client"
       },
@@ -34,12 +38,32 @@
         "panel": "dedicated",
         "reveal": "always"
       },
-      "problemMatcher": []
+      // Tell VSCode when this long-running task is "ready" so preLaunchTask
+      // doesn't wait forever. Matches Vite's startup output:
+      //   VITE v6.x  ready in xxx ms
+      //   ➜  Local:   http://localhost:5173/
+      "problemMatcher": [
+        {
+          "owner": "vite",
+          "pattern": {
+            "regexp": "^(.*)$",
+            "message": 1
+          },
+          "background": {
+            "activeOnStart": true,
+            "beginsPattern": "VITE",
+            "endsPattern": "Local:"
+          }
+        }
+      ]
     },
     {
       // Ctrl+Shift+B to start both servers in parallel
       "label": "Dev: start all",
-      "dependsOn": ["Backend: start", "Frontend: start"],
+      "dependsOn": [
+        "Backend: start",
+        "Frontend: start"
+      ],
       "dependsOrder": "parallel",
       "group": {
         "kind": "build",
