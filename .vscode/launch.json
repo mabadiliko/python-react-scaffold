@@ -18,6 +18,31 @@
       "cwd": "${workspaceFolder}/pyapp",
       "python": "${workspaceFolder}/.venv/bin/python",
       "justMyCode": true
+    },
+    {
+      // Debug the frontend using VSCode's built-in browser (no extension needed).
+      // Requires the Vite dev server to already be running on :5173.
+      "name": "Browser (debug frontend)",
+      "type": "editor-browser",
+      "request": "launch",
+      "url": "http://localhost:5173"
+    }
+  ],
+  // Compound launches — pick one from the Run & Debug dropdown (or F5)
+  "compounds": [
+    {
+      // Backend debugger + Vite frontend task
+      "name": "Full stack (debug)",
+      "configurations": ["FastAPI (debug)"],
+      "preLaunchTask": "Frontend: start",
+      "stopAll": true
+    },
+    {
+      // Both backend and frontend debuggers + Vite task
+      "name": "Full stack (debug both)",
+      "configurations": ["FastAPI (debug)", "Browser (debug frontend)"],
+      "preLaunchTask": "Frontend: start",
+      "stopAll": true
     }
   ]
 }

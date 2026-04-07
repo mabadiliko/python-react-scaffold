@@ -58,6 +58,22 @@ Open [http://localhost:5173](http://localhost:5173). The Vite dev server proxies
 
 In **VSCode**, press `Ctrl+Shift+B` to start both servers in parallel via the configured tasks.
 
+> **Note:** Make sure the local dev servers are stopped before running `docker compose up` — both use port 8000 and will conflict.
+
+---
+
+## Debugging in VSCode
+
+The `.vscode/launch.json` provides three configurations, selectable from the **Run & Debug** panel:
+
+| Configuration | Description |
+|---|---|
+| **FastAPI (debug)** | Starts the backend only with the Python debugger attached. Set breakpoints in any `.py` file. |
+| **Full stack (debug)** | Starts the Vite frontend task, then launches the backend with the Python debugger. |
+| **Full stack (debug both)** | Same as above, but also opens VSCode's built-in browser with the JavaScript debugger attached — set breakpoints in `.jsx` files too. |
+
+The built-in browser debugger (`editor-browser`) requires no extensions — it is part of VSCode.
+
 ---
 
 ## API
@@ -81,6 +97,12 @@ python-react-scaffold/
 ├── pyproject.toml          # Python deps (uv)
 ├── Dockerfile              # Multi-stage: Node build → Python runtime
 ├── docker-compose.yml
+│
+├── .vscode/
+│   ├── launch.json         # Debug configs (Python + browser)
+│   ├── tasks.json          # Ctrl+Shift+B: start both dev servers
+│   ├── settings.json       # Interpreter path, formatters, WSL settings
+│   └── extensions.json     # Recommended extensions
 │
 ├── pyapp/
 │   ├── start.py            # uvicorn entry point
